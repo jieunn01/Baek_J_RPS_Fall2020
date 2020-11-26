@@ -6,6 +6,11 @@ from random import randint
 # the index always starts at 0 
 choices = ["rock", "paper", "scissors"]
 
+player_lives = 5
+ai_lives = 5
+
+total_lives = 5
+
 # this is the player choice
 player = input("choose rock, paper or scissors : ")
 
@@ -26,11 +31,26 @@ if (computer == player):
 elif(computer== "rock"):
 	if (player == "scissors"):
 		print("you lose")
+		player_lives -= 1 #OR player_lives = player_lives -1 
 	else:
 		print("you win")
+		ai_lives -= 1
 
 elif(computer== "paper"):
-	if (player == "scissors"):
-		print("you win")
-	else:
+	if (player == "rock"):
 		print("you lose")
+		player_lives -= 1
+	else:
+		print("you win")
+		ai_lives -= 1
+
+elif (computer == "scissors"):
+	if (player == "paper"):
+		print("you lose")
+		player_lives -= 1
+	else:
+		print("you win")
+		ai_lives -= 1
+
+print("player lives:", player_lives)
+print("ai lives:", ai_lives)
